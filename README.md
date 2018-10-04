@@ -19,6 +19,7 @@ The underlying principles of operation are explained in the blog post [Checking 
 9. To build in release mode, run `msbuild /p:Configuration=Release`
 
 Alternatively, you can build & test from Visual Studio 2017 by opening the solution.
+In order to run tests from Visual Studio, you must ensure both the Solution Platform and Default Test Processor Architecture are set to x64.
 
 ## Usage
 
