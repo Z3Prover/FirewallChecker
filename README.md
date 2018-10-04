@@ -45,7 +45,7 @@ The Firewall Equivalence Checker compares two firewall rule files for logical eq
 If the two firewalls are not equivalent, the tool outputs a list of packets (default 10) treated differently by each firewall.
 The tool also lists firewall rules acting on the packets, easing debugging. Only IPv4 rules are currently supported.
 
-Two minimal tab-separated example firewall rule files are as follows (see [Examples](.\Examples) directory):
+Two minimal tab-separated example firewall rule files are as follows (see [Examples](./Examples) directory):
 
 Firewall 1:
 ```
