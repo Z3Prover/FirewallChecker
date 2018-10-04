@@ -2,7 +2,7 @@
 // Copyright (c) Microsoft Corporation.  All rights reserved.
 // </copyright>
 
-namespace Microsoft.FirewallQuery
+namespace Microsoft.FirewallQueryCmd
 {
     using System;
     using System.Collections.Generic;

@@ -2,7 +2,7 @@
 // Copyright (c) Microsoft Corporation.  All rights reserved.
 // </copyright>
 
-namespace Microsoft.FirewallEquivalenceChecker
+namespace Microsoft.FirewallEquivalenceCheckerCmd
 {
     using CommandLine;
 
