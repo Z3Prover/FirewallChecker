@@ -35,13 +35,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="System" />
-  </ItemGroup>
-  <ItemGroup>
-    <Reference Include="Microsoft.Z3, Version=4.4.1.0, Culture=neutral, processorArchitecture=AMD64">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Microsoft.Z3\4.4.1\x64\Microsoft.Z3.dll</HintPath>
+    <Reference Include="Microsoft.Z3, Version=4.8.1.9857, Culture=neutral, PublicKeyToken=9c8d792caae602a2, processorArchitecture=AMD64">
+      <HintPath>..\packages\Microsoft.Z3.x64.4.8.1\lib\net40\Microsoft.Z3.dll</HintPath>
     </Reference>
+    <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AddressRange.cs" />
@@ -59,5 +56,15 @@
     <Compile Include="WindowsFirewallRule.cs" />
     <Compile Include="WindowsFirewallRuleParser.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\Microsoft.Z3.x64.4.8.1\build\Microsoft.Z3.x64.targets" Condition="Exists('..\packages\Microsoft.Z3.x64.4.8.1\build\Microsoft.Z3.x64.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Z3.x64.4.8.1\build\Microsoft.Z3.x64.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Z3.x64.4.8.1\build\Microsoft.Z3.x64.targets'))" />
+  </Target>
 </Project>

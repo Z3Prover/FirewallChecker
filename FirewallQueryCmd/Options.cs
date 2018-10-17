@@ -44,7 +44,7 @@ namespace Microsoft.FirewallQueryCmd
         /// <summary>
         /// Gets or sets the network protocol of the test packet.
         /// </summary>
-        [Option("protocol", Required = false, HelpText = "Network protocol of test packet. [TCP, UDP, 23, \"Any\", etc.]")]
+        [Option("protocol", Required = true, HelpText = "Network protocol of test packet. [TCP, UDP, 23, \"Any\", etc.]")]
         public string Protocol { get; set; }
     }
 }
