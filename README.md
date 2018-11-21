@@ -35,7 +35,7 @@ The FirewallChecker consumes files of tab-separated inbound host firewall rules 
   3. Open the "Add or Remove Snap-ins" prompt with `ctrl+m`
   4. Add the "Windows Defender Firewall with Advanced Security" snap-in
   5. Click "Inbound Rules"
-  6. Right-click the same inbound or outbound rules and click "Export List..."
+  6. Right-click "Inbound Rules" and click "Export List..."
   7. Save the tab-separated output file
 
 The resulting file can be fed into the FirewallChecker, either for standalone analysis or comparison with a different firewall file.
