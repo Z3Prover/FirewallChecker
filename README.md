@@ -4,7 +4,7 @@ A firewall analysis library using the Z3 SMT Solver from Microsoft Research.
 Includes console applications to check the equivalence of two firewalls, or analyze the action of a firewall on a single packet.
 It was developed for use inside Microsoft Azure to analyze changes to Windows Firewall generation logic.
 
-The underlying principles of operation are explained in the blog post [Checking Firewall Equivalence with Z3](https://medium.com/@ahelwer/checking-firewall-equivalence-with-z3-c2efe5051c8f), and are based on the whitepaper [Checking Cloud Contracts in Microsoft Azure](https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/nbjorner-icdcit2015.pdf) by Nikolaj Bjørner and Karthick Jayaraman.
+The underlying principles of operation are explained in the blog post [Checking Firewall Equivalence with Z3](https://medium.com/@ahelwer/checking-firewall-equivalence-with-z3-c2efe5051c8f), and are based on the whitepaper [Checking Cloud Contracts in Microsoft Azure](https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/nbjorner-icdcit2015.pdf) by Nikolaj BjÃ¸rner and Karthick Jayaraman.
 
 ## Build & Test
 
@@ -28,13 +28,13 @@ In addition to their standalone utility, they also server as simple examples for
 
 ### Firewall Input Format
 
-The FirewallChecker consumes files of tab-separated firewall rules like those exported from Windows Firewall. To export the firewall rules of a given computer, do the following:
+The FirewallChecker consumes files of tab-separated inbound host firewall rules like those exported from Windows Firewall. To export the firewall rules of a given computer, do the following:
 
   1. Open the Windows Run prompt with `win+r`
   2. Run `mmc` (the Microsoft Management Console)
   3. Open the "Add or Remove Snap-ins" prompt with `ctrl+m`
   4. Add the "Windows Defender Firewall with Advanced Security" snap-in
-  5. Click "Inbound Rules" or "Outbound Rules"
+  5. Click "Inbound Rules"
   6. Right-click the same inbound or outbound rules and click "Export List..."
   7. Save the tab-separated output file
 
@@ -118,6 +118,6 @@ Firewall rules matching the test packet:
 -------------------------------------------------------------------------
 ```
 
-Note that there is no `---dstAddress` parameter, as the application only works for local Windows Firewall rulesets and so the destination address is assumed to be the computer on which the firewall rules live.
+Note that there is no `---dstAddress` parameter, as the application only works for local inbound Windows Firewall rulesets and so the destination address is assumed to be the computer on which the firewall rules live.
 
 Run `Microsoft.FirewallQueryCmd.exe --help` to see the documented list of command-line parameters.
