@@ -8,18 +8,11 @@ The underlying principles of operation are explained in the blog post [Checking 
 
 ## Build & Test
 
-1. Install [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)
-2. Install [.NET Framework 4.7.2](https://www.microsoft.com/net/download)
-3. Install [NuGet Commandline](https://www.nuget.org/downloads)
-4. Clone the repo
-5. Open x64 Native Tools Command Prompt for VS 2017 and `cd` to the repo root
-6. Run `nuget restore` to download required packages
-7. To build in debug mode, run `msbuild`
-8. To test, run `vstest.console .\FirewallAnalysis.Tests\bin\debug\Microsoft.FirewallAnalysis.Tests.dll`
-9. To build in release mode, run `msbuild /p:Configuration=Release`
-
-Alternatively, you can build & test from Visual Studio 2017 by opening the solution.
-In order to run tests from Visual Studio, you must ensure both the Solution Platform and Default Test Processor Architecture are set to x64.
+1. Install the [.NET Core SDK 2.2](https://dotnet.microsoft.com/download)
+2. Clone the repo
+3. Open your command prompt and `cd` to the repo root
+4. To build, run `dotnet build`
+5. To test, run  `dotnet test`
 
 ## Usage
 
@@ -62,10 +55,10 @@ Foo2	Yes	Allow	100	10.3.141.0	100	UDP
 Bar2	Yes	Allow	200	10.3.141.1	200	TCP
 ```
 
-This generates the following output from `FirewallEquivalenceCheckerCmd.exe`:
+This generates the following output from FirewallEquivalenceCheckerCmd:
 
 ```
-Microsoft.FirewallEquivalenceCheckerCmd.exe --firewall1 .\firewall1.txt --firewall2 .\firewall2.txt
+>dotnet run --project FirewallEquivalenceCheckerCmd --firewall1 .\Examples\firewall1.txt --firewall2 .\Examples\firewall2.txt
 Parsing first firewall...
 Parsing second firewall...
 Running equivalence check...
@@ -95,7 +88,7 @@ The PID serves as a foreign key for the second table, which lists the rules (pos
 When parsing Windows Firewall rule files, there are various elements such as port macros (ex. "RPC Dynamic Ports") which the parser does not handle.
 These rules are simply ignored, with a warning message printed to the console for each line.
 
-Run `Microsoft.FirewallEquivalenceCheckerCmd.exe --help` to see the documented list of command-line parameters.
+Run `dotnet run --project FirewallEquivalenceCheckerCmd --help` to see the documented list of command-line parameters.
 
 ### Firewall Query
 
@@ -105,7 +98,7 @@ The tool then outputs whether the firewall blocks or allows that packet, as well
 Using Firewall 1 from above, we can execute a simple example query:
 
 ```
-Microsoft.FirewallQueryCmd.exe --firewall .\firewall1.txt --srcAddress 10.3.141.0 --srcPort 100 --dstPort 100 --protocol UDP
+>dotnet run --project FirewallQueryCmd --firewall .\Examples\firewall1.txt --srcAddress 10.3.141.0 --srcPort 100 --dstPort 100 --protocol UDP
 Parsing firewall rules...
 Checking action of firewall on packet...
 Packet is allowed by firewall.
@@ -118,6 +111,6 @@ Firewall rules matching the test packet:
 -------------------------------------------------------------------------
 ```
 
-Note that there is no `---dstAddress` parameter, as the application only works for local inbound Windows Firewall rulesets and so the destination address is assumed to be the computer on which the firewall rules live.
+Note that there is no `--dstAddress` parameter, as the application only works for local inbound Windows Firewall rulesets and so the destination address is assumed to be the computer on which the firewall rules live.
 
-Run `Microsoft.FirewallQueryCmd.exe --help` to see the documented list of command-line parameters.
+Run `dotnet run --project FirewallQueryCmd --help` to see the documented list of command-line parameters.
