@@ -3,6 +3,7 @@
   <PropertyGroup>
     <AssemblyName>Microsoft.FirewallAnalysis.Tests</AssemblyName>
     <TargetFramework>netcoreapp2.1</TargetFramework>
+    <PlatformTarget>x64</PlatformTarget>
     <IsPackable>false</IsPackable>
   </PropertyGroup>
 
