@@ -8,7 +8,7 @@ The underlying principles of operation are explained in the blog post [Checking 
 
 ## Build & Test
 
-1. Install the [.NET Core SDK 2.2](https://dotnet.microsoft.com/download)
+1. Install the [.NET Core SDK 3.0](https://dotnet.microsoft.com/download)
 2. Clone the repo
 3. Open your command prompt and `cd` to the repo root
 4. To build, run `dotnet build`
