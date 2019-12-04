@@ -4,7 +4,7 @@ A firewall analysis library using the Z3 SMT Solver from Microsoft Research.
 Includes console applications to check the equivalence of two firewalls, or analyze the action of a firewall on a single packet.
 It was developed for use inside Microsoft Azure to analyze changes to Windows Firewall generation logic.
 
-The underlying principles of operation are explained in the blog post [Checking Firewall Equivalence with Z3](https://medium.com/@ahelwer/checking-firewall-equivalence-with-z3-c2efe5051c8f), and are based on the whitepaper [Checking Cloud Contracts in Microsoft Azure](https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/nbjorner-icdcit2015.pdf) by Nikolaj Bjørner and Karthick Jayaraman.
+The underlying principles of operation are explained in the blog post [Checking Firewall Equivalence with Z3](https://ahelwer.ca/post/2018-02-13-z3-firewall/), and are based on the whitepaper [Checking Cloud Contracts in Microsoft Azure](https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/nbjorner-icdcit2015.pdf) by Nikolaj Bjørner and Karthick Jayaraman.
 
 ## Build & Test
 
