@@ -10,7 +10,7 @@ The underlying principles of operation are explained in the blog post [Checking 
 
 ## Build & Test
 
-1. Install the [.NET Core SDK 3.1](https://dotnet.microsoft.com/download)
+1. Install the [.NET 5.0 SDK](https://dotnet.microsoft.com/download)
 2. Clone the repo
 3. Open your command prompt and `cd` to the repo root
 4. To build, run `dotnet build`
@@ -57,10 +57,12 @@ Foo2	Yes	Allow	100	10.3.141.0	100	UDP
 Bar2	Yes	Allow	200	10.3.141.1	200	TCP
 ```
 
-This generates the following output from FirewallEquivalenceCheckerCmd:
-
+Analyze their differences with the following command:
 ```
->dotnet run --project FirewallEquivalenceCheckerCmd --firewall1 .\Examples\firewall1.txt --firewall2 .\Examples\firewall2.txt
+dotnet run --project FirewallEquivalenceCheckerCmd --firewall1 Examples/firewall1.txt --firewall2 Examples/firewall2.txt
+```
+This should generate the following output:
+```
 Parsing first firewall...
 Parsing second firewall...
 Running equivalence check...
@@ -100,7 +102,10 @@ The tool then outputs whether the firewall blocks or allows that packet, as well
 Using Firewall 1 from above, we can execute a simple example query:
 
 ```
->dotnet run --project FirewallQueryCmd --firewall .\Examples\firewall1.txt --srcAddress 10.3.141.0 --srcPort 100 --dstPort 100 --protocol UDP
+dotnet run --project FirewallQueryCmd --firewall Examples/firewall1.txt --srcAddress 10.3.141.0 --srcPort 100 --dstPort 100 --protocol UDP
+```
+which should produce the following output:
+```
 Parsing firewall rules...
 Checking action of firewall on packet...
 Packet is allowed by firewall.

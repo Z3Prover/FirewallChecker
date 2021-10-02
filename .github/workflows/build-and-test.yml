@@ -6,11 +6,17 @@ on:
     branches: master
 jobs:
   build-and-test-projects:
-    runs-on: windows-latest
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [windows-latest, ubuntu-latest, macos-latest]
+      fail-fast: false
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-dotnet@v1
         with:
-          dotnet-version: '3.1.x'
+          dotnet-version: '5.0.x'
       - run: dotnet build
       - run: dotnet test
+      - run: dotnet run --project FirewallEquivalenceCheckerCmd --firewall1 Examples/firewall1.txt --firewall2 Examples/firewall2.txt
+      - run: dotnet run --project FirewallQueryCmd --firewall Examples/firewall1.txt --srcAddress 10.3.141.0 --srcPort 100 --dstPort 100 --protocol UDP
